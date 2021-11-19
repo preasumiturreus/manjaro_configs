@@ -35,3 +35,9 @@ I was having a problem with my optical output (S/PDIFF) after installing jackaud
 
 I hope to get better performance from my motherboards sound chip than the usb DAC. The downside to this is my 5 channel speaker set now is on the same sound card as my headphones connected to the amplifier to the SPDIFF port.
 
+The S/PDIFF output on the motherboard sound card vs the 5 (?) channel analog outputs can be described as hw:Generic,1 vs hw:Generic,0 respectively.
+
+Run the command `alsa_out -j Mobo_out -d hw:Generic,0 -c 6` . Channels 5 and 6 seem to be the same, the center channel.
+The following does not seem to work `zita-j2a -j Mobo5Channel -d hw:Generic,0 -c 6`, it spams "Starting synchronisation." According to the man page this indicates a major problem. Running zita-j2a with tracing '-v' spams `Alsa_pcmi: error on playback pollfd.` between each starting synchronisation.
+
+`zita-a2j -j Mobo -d hw:Generic,0` would correspond to a 2-channel microphone input to jackaudio from the motherboard.
