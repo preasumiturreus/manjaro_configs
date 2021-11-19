@@ -27,3 +27,11 @@ The USB Modi Device is selected to be the jack server's 'system playback_1 and p
 ```
 alsa_out -j motherboard_out -d hw:Generic
 ```
+
+Another option to alsa_out is zita_a2j and zita_j2a. [Here](https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html)
+
+I was having a problem with my optical output (S/PDIFF) after installing jackaudio. To fix, run alsamixer, and select the motherboard's sound card. Using arrow key, select the S/PDIFF playback channel, and press 'M' to unmute.
+![alsamixer config](https://github.com/preasumiturreus/manjaro_configs/blob/main/Screenshot_2021-11-19_12-24-20.png?raw=true)
+
+I hope to get better performance from my motherboards sound chip than the usb DAC. The downside to this is my 5 channel speaker set now is on the same sound card as my headphones connected to the amplifier to the SPDIFF port.
+
