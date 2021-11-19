@@ -30,7 +30,7 @@ alsa_out -j motherboard_out -d hw:Generic
 
 Another option to alsa_out is zita_a2j and zita_j2a. [Here](https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html)
 
-I was having a problem with my optical output (S/PDIFF) after installing jackaudio. To fix, run alsamixer, and select the motherboard's sound card. Using arrow key, select the S/PDIFF playback channel, and press 'M' to unmute.
+I was having a problem with my optical output (S/PDIFF) after installing jackaudio. To fix, run alsamixer, and select the motherboard's sound card. Using arrow key, select the S/PDIFF playback channel, and press 'M' to unmute. A good explanation of alsamixer is available at [linuxaudio wiki](https://wiki.linuxaudio.org/wiki/alsa_and_kxstudio).
 ![alsamixer config](https://github.com/preasumiturreus/manjaro_configs/blob/main/Screenshot_2021-11-19_12-24-20.png?raw=true)
 
 I hope to get better performance from my motherboards sound chip than the usb DAC. The downside to this is my 5 channel speaker set now is on the same sound card as my headphones connected to the amplifier to the SPDIFF port.
@@ -41,3 +41,5 @@ Run the command `alsa_out -j Mobo_out -d hw:Generic,0 -c 6` . Channels 5 and 6 s
 The following does not seem to work `zita-j2a -j Mobo5Channel -d hw:Generic,0 -c 6`, it spams "Starting synchronisation." According to the man page this indicates a major problem. Running zita-j2a with tracing '-v' spams `Alsa_pcmi: error on playback pollfd.` between each starting synchronisation.
 
 `zita-a2j -j Mobo -d hw:Generic,0` would correspond to a 2-channel microphone input to jackaudio from the motherboard.
+
+
