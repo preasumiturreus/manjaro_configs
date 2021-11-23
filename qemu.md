@@ -49,7 +49,7 @@ jack: E: JackClient::AcquireSelfRealTime error
 jack: JACK output configured for 48000Hz (512 samples)
 ```
 
-The solution was following [this level1techs post](https://forum.level1techs.com/t/qemu-native-jack-audio-support/156494/38)
+The solution was following [this level1techs post](https://forum.level1techs.com/t/qemu-native-jack-audio-support/156494/38).
 To summarize, to create override .confs for a few systemd services. Which was to follow the [arch wiki](https://wiki.archlinux.org/title/Systemd#Editing_provided_units) about drop-in files.
 Create the following and restart libvirtd.service: 
 ```
@@ -62,8 +62,9 @@ Each containing
 [Service]
 LimitRTPRIO=95
 LimitNICE=-16
-LimitMEMLOCK=infinity```
+LimitMEMLOCK=infinity
+```
 
-Since I start jack server using qjackctl with dbus option unchecked, jackd is run as a separate dbus-unaware process, I think. Making an override.conf for dbus.service and pulseaudio.service may be optional.
+Since I start jack server using qjackctl with dbus option unchecked, jackd is run as a separate dbus-unaware process, I think. Making an override.conf for dbus.service and pulseaudio.service may be optional for my configuration.
 
 I have previously tried running jack with Cadence and had issues with poor performance and xruns. I suspect a dbus misconfiguration, and while I don't understand the RTPRIO option, maybe jackdbus may perform better now.
