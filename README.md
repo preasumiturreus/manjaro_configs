@@ -42,4 +42,5 @@ The following does not seem to work `zita-j2a -j Mobo5Channel -d hw:Generic,0 -c
 
 `zita-a2j -j Mobo -d hw:Generic,0` would correspond to a 2-channel microphone input to jackaudio from the motherboard.
 
-
+## pulseaudio resource
+https://shallowsky.com/linux/pulseaudio-command-line.html
